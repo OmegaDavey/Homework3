@@ -13,11 +13,14 @@ public class Main {
         System.out.print("Enter value for gallons/day: ");
         while (true) {
             if (getUserInput.hasNextLine()) {
-                gallons = (getUserInput.nextDouble());
+                String tempGallons = (getUserInput.nextLine()).strip();
 
-                if (gallons < 0) {
+                // Convert String Height to Double
+                try {
+                    gallons = Double.parseDouble(tempGallons);
+                } catch (NumberFormatException nfe) {
                     getUserInput.close();
-                    throw new IllegalArgumentException("Invalid Input. Enter units as gallons/day (positive double).");
+                    throw new IllegalArgumentException("Invalid Input for Gallons. Must be a numeric value.");
                 }
                 break;
             }
@@ -28,6 +31,12 @@ public class Main {
     }
 
     public static void gallonToLiter(double gallons){
+
+        // Ensure Gallons is within range.
+        if (gallons < 0 || gallons > 999999) {
+            throw new IllegalArgumentException("Invalid Input. Gallons must be between 0 and 999999.");
+        }
+
         double liters = gallons * 3.78541;
         System.out.println(gallons + " gallons/day is equal to " + liters + " liters/day.");
     }

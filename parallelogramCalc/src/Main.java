@@ -13,11 +13,14 @@ public class Main {
         System.out.print("Enter value for side B (base) of parallelogram: ");
         while (true) {
             if (getUserInput.hasNextLine()) {
-                base = (getUserInput.nextDouble());
+                String tempBase = (getUserInput.nextLine()).strip();
 
-                if (base == 0 || base < 0) {
+                // Convert String Base to Double
+                try {
+                    base = Double.parseDouble(tempBase);
+                } catch (NumberFormatException nfe) {
                     getUserInput.close();
-                    throw new IllegalArgumentException("Invalid Input. Enter units as US or SI.");
+                    throw new IllegalArgumentException("Invalid Input for Base. Must be a numeric value.");
                 }
                 break;
             }
@@ -27,11 +30,14 @@ public class Main {
         System.out.print("Enter value for height of parallelogram (integer): ");
         while (true) {
             if (getUserInput.hasNextLine()) {
-                height = (getUserInput.nextDouble());
+                String tempHeight = (getUserInput.nextLine()).strip();
 
-                if (height == 0 || height < 0) {
+                // Convert String Height to Double
+                try {
+                    height = Double.parseDouble(tempHeight);
+                } catch (NumberFormatException nfe) {
                     getUserInput.close();
-                    throw new IllegalArgumentException("Invalid Input. Enter units as US or SI.");
+                    throw new IllegalArgumentException("Invalid Input for Height. Must be a numeric value.");
                 }
                 break;
             }
@@ -45,6 +51,15 @@ public class Main {
 
     public static void calculatePerimeter(double height, double base){
 
+        // Ensure Base is within range.
+        if (base < 1 || base > 999999) {
+            throw new IllegalArgumentException("Invalid Input. Base must be between 1 and 999999.");
+        }
+
+        // Ensure Height is within range.
+        if (height < 1 || height > 999999) {
+            throw new IllegalArgumentException("Invalid Input. Height must be between 1x and 999999.");
+        }
         
         double perimeter;
 
