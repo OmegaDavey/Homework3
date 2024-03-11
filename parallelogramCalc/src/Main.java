@@ -68,9 +68,9 @@ public class Main {
 
         perimeter = 2 * (sideA + base);
 
-        String formattedSideA = String.format("%.3f", sideA);
+        String formattedSideA = String.format("%.5f", sideA);
 
-        String formattedPerimeter = String.format("%.3f", perimeter);
+        String formattedPerimeter = String.format("%.5f", perimeter);
 
         System.out.println("The perimeter of the parallelogram is aproximately: " + formattedPerimeter + " using a base of " + base + " and a side length of " + formattedSideA + ".");
         

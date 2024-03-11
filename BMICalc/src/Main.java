@@ -74,12 +74,12 @@ public class Main {
 
         // Ensure Weight is within range.
         if (weightKg < 1 || weightKg > 500) {
-            throw new IllegalArgumentException("Invalid Input. Weight must be between 1 and 500.");
+            throw new IllegalArgumentException("Invalid Input. Weight must be between 1kg and 500kg.");
         }
 
         // Ensure Height is within range.
         if (heightCm < 10 || heightCm > 300) {
-            throw new IllegalArgumentException("Invalid Input. Height must be between 10 and 300.");
+            throw new IllegalArgumentException("Invalid Input. Height must be between 10cm and 300cm.");
         }
 
         // Complete BMI Calculation & Assessment
