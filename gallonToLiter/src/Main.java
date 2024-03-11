@@ -33,7 +33,7 @@ public class Main {
     public static void gallonToLiter(double gallons){
 
         // Ensure Gallons is within range.
-        if (gallons < 0 || gallons > 999999) {
+        if (gallons <= 0 || gallons >= 999999) {
             throw new IllegalArgumentException("Invalid Input. Gallons must be between 0 and 999999.");
         }
 

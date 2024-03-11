@@ -52,12 +52,12 @@ public class Main {
     public static void calculatePerimeter(double height, double base){
 
         // Ensure Base is within range.
-        if (base < 1 || base > 999999) {
+        if (base <= 1 || base >= 999999) {
             throw new IllegalArgumentException("Invalid Input. Base must be between 1 and 999999.");
         }
 
         // Ensure Height is within range.
-        if (height < 1 || height > 999999) {
+        if (height <= 1 || height >= 999999) {
             throw new IllegalArgumentException("Invalid Input. Height must be between 1x and 999999.");
         }
         
